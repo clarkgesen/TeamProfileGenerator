@@ -63,7 +63,7 @@ function getIntern() {
             type: "input",
             name: "email",
         }, {
-            message: "What school do yout attend?",
+            message: "What school do you attend?",
             type: "input",
             name: "school",
         }
@@ -100,13 +100,15 @@ function nextEmployee() {
                 if(value.typeOfEmployee === 'Engineer') {
                     getEngineer().then(function (value) {
                         let engineer = new Engineer(value.name, value.id, value.email, value.github);
-                        console.log(engineer);
+                        // let newCard = document.createElement('div');
+                        // let add = document.getElementById('add');
+                        // add.appendChild(newCard);
                         nextEmployee();
                     })
                 } else {
                     getIntern().then(function (value) {
                         let intern = new Intern(value.name, value.id, value.email, value.school);
-                        console.log(intern);
+                        // console.log(intern);
                         nextEmployee();
                     })
                 }
@@ -118,7 +120,7 @@ function nextEmployee() {
 
 getManager().then(function (value) {
     let e = new Manager(value.name, value.id, value.email, value.officeNumber);
-    console.log(e);
+    // console.log(e);
     nextEmployee();
 })
 
